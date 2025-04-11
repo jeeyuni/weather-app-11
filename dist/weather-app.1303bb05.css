@@ -1,2 +1,32 @@
+body {
+  height: flex;
+  background: #f6f9fc;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
 
+#weather-container {
+  background: #d3dce1;
+  border-radius: 10px;
+  width: 40%;
+  height: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+}
+
+#currentweather-container {
+  height: 200px;
+  height: flex;
+  background: #9ba7b4;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+}
 /*# sourceMappingURL=weather-app.1303bb05.css.map */

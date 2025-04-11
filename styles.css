@@ -1,0 +1,34 @@
+body {
+
+    background: rgb(246, 249, 252) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: flex;
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+#weather-container  {
+    background : rgb(211, 220, 225);
+    padding : 2rem;
+    width: 40%;
+    margin: 4rem auto;
+    border-radius: 10px;
+    height: 400px;
+}
+
+#currentweather-container {
+    background: rgb(155,167,180);
+    padding : 20px;
+    border-radius: 15px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: flex;
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
