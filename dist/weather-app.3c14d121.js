@@ -668,8 +668,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"kTBnD":[function(require,module,exports,__globalThis) {
 require("88936c056fc44dd2").config();
-//Testing api key
-console.log("8dbc229683d9e2c9e0217ddebe650687");
 async function fetchWeather() {
     const apiKey = "8dbc229683d9e2c9e0217ddebe650687";
     let city = 'Seoul';
@@ -679,24 +677,27 @@ async function fetchWeather() {
     if (inputCity) city = inputCity;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     //getting dta from the API
-    // console.log(inputCity);
     const response = await fetch(url);
     const data = await response.json();
     displayCurrentWeather(data);
+    console.log(data); //console logging data
 }
 function displayCurrentWeather(data) {
     const newImageElement = document.createElement('img');
     newImageElement.src = ` https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     const weather = document.getElementById("weather");
+    const weatherCity = document.getElementById("weather-city");
     const weatherTemp = document.getElementById("weather-temp");
     const weatherHumidity = document.getElementById("weather-humidity");
     const weatherDescription = document.getElementById("weather-description");
     //clearing previous contents
     weather.innerHTML = '';
+    weatherCity.innerHTML = '';
     weatherTemp.innerHTML = '';
     weatherHumidity.innerHTML = '';
     weatherDescription.innerHTML = '';
     weather.appendChild(newImageElement);
+    weatherCity.textContent = `${data.name}`;
     weatherTemp.textContent = `${data.main.temp}\u00B0F`;
     weatherHumidity.textContent = `${data.main.humidity}% Humidity`;
     weatherDescription.textContent = `${data.weather[0].description}`;
