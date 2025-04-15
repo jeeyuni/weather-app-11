@@ -12,7 +12,7 @@ async function fetchWeather() {
         city = inputCity;
     }
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=5&appid=${apiKey}`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=6&appid=${apiKey}`;
 
     //getting dta from the current weather api
     const response = await fetch(url);
@@ -23,7 +23,8 @@ async function fetchWeather() {
 
     displayCurrentWeather(data);
     //console.log(data); //console logging data
-    console.log(forecastData) //console logging forecast data
+    displayForecastWeather(forecastData.list);
+    console.log(forecastData.list) //console logging forecast data
     
 }
 
@@ -53,8 +54,18 @@ function displayCurrentWeather(data) {
 }
 
 function displayForecastWeather(data) {
-    const newImageElement = document.createElement('img');
-    newImageElement.src = ` https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    
+    for (let i = 1; i < data.length; i++) {
+        console.log(data[i]);
+
+        const newImageElement = document.createElement('img');
+        newImageElement.src = ` https://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png`;
+
+        const forecastWeather = document.getElementById("forecastweather");
+        forecastWeather.appendChild(newImageElement); 
+
+    }
+    
 }
 
 fetchWeather();
