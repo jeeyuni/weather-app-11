@@ -1,6 +1,10 @@
+* {
+  font-family: IBM Plex Sans KR, sans-serif;
+}
+
 body {
   height: flex;
-  background: #f6f9fc;
+  background: #2ea0e1;
   justify-content: center;
   align-items: center;
   margin: 0;
@@ -8,7 +12,7 @@ body {
 }
 
 #weather-container {
-  background: #d3dce1;
+  background: #f2f2f1;
   border-radius: 10px;
   width: 40%;
   height: 400px;

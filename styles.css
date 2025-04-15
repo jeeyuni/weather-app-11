@@ -1,6 +1,9 @@
-body {
+* {
+    font-family: "IBM Plex Sans KR", sans-serif;
+}
 
-    background: rgb(246, 249, 252) ;
+body {
+    background:#2ea0e1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +12,7 @@ body {
 }
   
 #weather-container  {
-    background : rgb(211, 220, 225);
+    background : #f2f2f1;
     padding : 2rem;
     width: 40%;
     margin: 4rem auto;

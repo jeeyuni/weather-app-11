@@ -12,12 +12,18 @@ async function fetchWeather() {
         city = inputCity;
     }
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-    //getting dta from the API
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=5&appid=${apiKey}`;
+
+    //getting dta from the current weather api
     const response = await fetch(url);
     const data = await response.json();
+    // forecast weather api 
+    const responseForecast = await fetch(forecastUrl);
+    const forecastData = await responseForecast.json();
 
     displayCurrentWeather(data);
-    console.log(data); //console logging data
+    //console.log(data); //console logging data
+    console.log(forecastData) //console logging forecast data
     
 }
 
@@ -44,6 +50,11 @@ function displayCurrentWeather(data) {
     weatherHumidity.textContent = `${data.main.humidity}% Humidity`;
     weatherDescription.textContent = `${data.weather[0].description}`;
 
+}
+
+function displayForecastWeather(data) {
+    const newImageElement = document.createElement('img');
+    newImageElement.src = ` https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 }
 
 fetchWeather();
