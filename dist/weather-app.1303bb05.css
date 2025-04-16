@@ -14,10 +14,16 @@ body {
 #weather-container {
   background: #f2f2f1;
   border-radius: 10px;
-  width: 40%;
+  width: 80%;
   height: 400px;
   margin: 4rem auto;
   padding: 2rem;
+}
+
+#weather-container #weather {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 }
 
 #currentweather-container {
@@ -29,11 +35,13 @@ body {
   align-items: center;
   margin: 0;
   padding: 20px;
-  font-family: Arial, Helvetica, sans-serif;
   display: flex;
 }
 
 #forecastweather-container {
+  background-color: #9ba7b4;
+  width: 80%;
+  padding: 20px;
   display: flex;
 }
 /*# sourceMappingURL=weather-app.1303bb05.css.map */
