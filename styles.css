@@ -3,21 +3,21 @@
 }
 
 body {
-    background:#2ea0e1;
+    background: #2ea0e1;
     display: flex;
     align-items: center;
     justify-content: center;
     height: flex;
     margin: 0;
 }
-  
-#weather-container  {
-    background : #f2f2f1;
-    padding : 2rem;
-    width: 80%;
+
+#weather-container {
+    background: #f2f2f1;
+    padding: 2rem;
+    width: 1000px;
     margin: 4rem auto;
-    border-radius: 10px;
-    height: 400px;
+    border-radius: 2px;
+    height: 800px;
 }
 
 #weather-container #weather {
@@ -27,21 +27,22 @@ body {
 }
 
 #currentweather-container {
-    background: rgb(155,167,180);
-    padding : 20px;
-    border-radius: 15px;
+    background: rgb(155, 167, 180);
+    padding: 20px;
+    border-radius: 2px;
     height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: flex;
     margin: 0;
-
 }
 
 #forecastweather-container {
     display: flex;
     width: 80%;
-    background-color: rgb(155,167,180);
+    background-color: rgb(155, 167, 180);
     padding: 20px;
+    justify-content: center;
+
 }
