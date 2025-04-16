@@ -671,6 +671,8 @@ require("88936c056fc44dd2").config();
 async function fetchWeather() {
     const apiKey = "8dbc229683d9e2c9e0217ddebe650687";
     let city = 'Seoul';
+    //added even listener to the button
+    document.querySelector('button').addEventListener('click', fetchWeather);
     // if there is an input from the user
     const input = document.getElementById("city");
     const inputCity = input.value;
@@ -710,6 +712,7 @@ function displayCurrentWeather(data) {
     weatherDescription.textContent = `${data.weather[0].description}`;
 }
 function displayForecastWeather(data) {
+    //need to clear the previous contents
     for(let i = 1; i < data.length; i++){
         console.log(data[i]);
         const newImageElement = document.createElement('img');

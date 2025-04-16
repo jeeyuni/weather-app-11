@@ -3,6 +3,8 @@ require('dotenv').config();
 async function fetchWeather() {
     const apiKey = process.env.API_KEY;
     let city = 'Seoul';
+    //added even listener to the button
+    document.querySelector('button').addEventListener('click', fetchWeather);
 
     // if there is an input from the user
     const input = document.getElementById("city");
@@ -54,16 +56,15 @@ function displayCurrentWeather(data) {
 }
 
 function displayForecastWeather(data) {
-    
+    //need to clear the previous contents
     for (let i = 1; i < data.length; i++) {
         console.log(data[i]);
-
+        
         const newImageElement = document.createElement('img');
         newImageElement.src = ` https://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png`;
 
         const forecastWeather = document.getElementById("forecastweather");
         forecastWeather.appendChild(newImageElement); 
-
     }
     
 }
