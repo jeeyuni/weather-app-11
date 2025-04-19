@@ -678,7 +678,7 @@ async function fetchWeather() {
     const inputCity = input.value;
     if (inputCity) city = inputCity;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=6&appid=${apiKey}`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=6&appid=${apiKey}&units=imperial`;
     //getting dta from the current weather api
     const response = await fetch(url);
     const data = await response.json();
@@ -686,7 +686,7 @@ async function fetchWeather() {
     const responseForecast = await fetch(forecastUrl);
     const forecastData = await responseForecast.json();
     displayCurrentWeather(data);
-    //console.log(data); //console logging data
+    console.log(data); //console logging data
     displayForecastWeather(forecastData.list);
     console.log(forecastData.list) //console logging forecast data
     ;
@@ -712,14 +712,26 @@ function displayCurrentWeather(data) {
     weatherDescription.textContent = `${data.weather[0].description}`;
 }
 function displayForecastWeather(data) {
-    //need to clear the previous contents
+    //clearing previous weather icons 
+    // for (let i = 1; i < 6; i++) {
+    //     const forecastWeather = document.getElementById(`forecastweather-${i}`);
+    //     forecastWeather.innerHTML = '';
+    // }
+    // const forecastWeather = document.getElementById("forecastweather");
+    // forecastWeather.innerHTML = '';
     for(let i = 1; i < data.length; i++){
         console.log(data[i]);
+        //adding the forecast weather icons
         const newImageElement = document.createElement('img');
         newImageElement.src = ` https://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png`;
-        const forecastWeather = document.getElementById("forecastweather");
-        newImageElement.setAttribute('class', `forecastweather${i}`);
+        //assigning class to each image elements
+        const forecastWeather = document.getElementById(`forecastweather-${i}`);
+        // newImageElement.setAttribute('class', `forecastweather${i}`);
+        const forecastWeatherMax = document.getElementById(`forecastweather-max-${i}`);
+        const forecastWeatherMin = document.getElementById(`forecastweather-min-${i}`);
         forecastWeather.appendChild(newImageElement);
+        forecastWeatherMax.textContent = `Max: ${data[i].temp.max}\u00B0F`;
+        forecastWeatherMin.textContent = `Min: ${data[i].temp.min}\u00B0F`;
     }
 }
 fetchWeather();
