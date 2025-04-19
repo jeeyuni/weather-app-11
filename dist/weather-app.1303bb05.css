@@ -41,7 +41,7 @@ body {
 #forecastweather-container {
   background-color: #9ba7b4;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   padding: 20px;
   display: flex;
 }
