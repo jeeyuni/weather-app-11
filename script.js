@@ -64,11 +64,11 @@ function displayForecastWeather(data) {
         newImageElement.src = ` https://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png`;
 
         const forecastWeather = document.getElementById("forecastweather");
+        newImageElement.setAttribute('class', `forecastweather${i}`);
+    
         forecastWeather.appendChild(newImageElement); 
     }
     
 }
 
 fetchWeather();
-
-
