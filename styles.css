@@ -1,5 +1,7 @@
 * {
     font-family: "IBM Plex Sans KR", sans-serif;
+    /* no list style */
+    list-style-type: none;
 }
 
 body {
@@ -24,6 +26,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 #currentweather-container {
@@ -36,13 +39,13 @@ body {
     justify-content: center;
     height: flex;
     margin: 0;
+    
 }
 
-#forecastweather-container {
+#fivedays-forecast {
     display: flex;
     width: 100%;
     background-color: rgb(155, 167, 180);
-    padding: 20px;
+    padding: 50px;
     justify-content: center;
-
 }
