@@ -66,18 +66,18 @@ function displayForecastWeather(data) {
         newImageElement.src = ` https://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png`;
     
         const forecastWeather = document.getElementById(`forecastweathericon-${i}`);
-        // newImageElement.setAttribute('class', `forecastweather-${i}`);
+        const forecastWeatherDate = document.getElementById(`forecastweather-date-${i}`);
         const forecastWeatherMax = document.getElementById(`forecastweather-max-${i}`);
         const forecastWeatherMin = document.getElementById(`forecastweather-min-${i}`);
 
         forecastWeather.appendChild(newImageElement);
+        forecastWeatherDate.textContent = `${new Date(data[i].dt * 1000).toLocaleDateString()}`;
         forecastWeatherMax.textContent = `Max: ${data[i].temp.max}\u00B0F`;
         forecastWeatherMin.textContent = `Min: ${data[i].temp.min}\u00B0F`;
     }
 }
 
 function displayHourlyWeather(data) {
-    console.log(data);
     for (let i = 0; i < data.length; i++) {
         //adding the forecast weather icons
         const newImageElement = document.createElement('img');
