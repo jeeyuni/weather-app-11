@@ -698,7 +698,7 @@ function displayCurrentWeather(data) {
     const weatherTemp = document.getElementById("weather-temp");
     const weatherHumidity = document.getElementById("weather-humidity");
     const weatherDescription = document.getElementById("weather-description");
-    //clearing previous contents
+    // //clearing previous contents
     weather.innerHTML = '';
     weatherCity.innerHTML = '';
     weatherTemp.innerHTML = '';
@@ -711,26 +711,19 @@ function displayCurrentWeather(data) {
     weatherDescription.textContent = `${data.weather[0].description}`;
 }
 function displayForecastWeather(data) {
-    //clearing previous weather icons 
-    // for (let i = 1; i < 6; i++) {
-    //     const forecastWeather = document.getElementById(`forecastweather-${i}`);
-    //     forecastWeather.innerHTML = '';
-    // }
-    // const forecastWeather = document.getElementById("forecastweather");
-    // forecastWeather.innerHTML = '';
     for(let i = 0; i < data.length; i++){
         console.log(data[i]);
         //adding the forecast weather icons
         const newImageElement = document.createElement('img');
         newImageElement.src = ` https://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png`;
         //assigning class to each image elements
-        const forecastWeather = document.getElementById(`forecastweather-${i}`);
-        // newImageElement.setAttribute('class', `forecastweather${i}`);
-        const forecastWeatherMax = document.getElementById(`forecastweather-max-${i + 1}`);
-        const forecastWeatherMin = document.getElementById(`forecastweather-min-${i + 1}`);
+        const forecastWeather = document.getElementById(`forecastweathericon-${i}`);
+        // newImageElement.setAttribute('class', `forecastweather-${i}`);
+        const forecastWeatherMax = document.getElementById(`forecastweather-max-${i}`);
+        const forecastWeatherMin = document.getElementById(`forecastweather-min-${i}`);
         forecastWeather.appendChild(newImageElement);
-        forecastWeatherMax.textContent = `Max: ${data[i + 1].temp.max}\u00B0F`;
-        forecastWeatherMin.textContent = `Min: ${data[i + 1].temp.min}\u00B0F`;
+        forecastWeatherMax.textContent = `Max: ${data[i].temp.max}\u00B0F`;
+        forecastWeatherMin.textContent = `Min: ${data[i].temp.min}\u00B0F`;
     }
 }
 fetchWeather();
