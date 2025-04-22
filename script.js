@@ -26,7 +26,7 @@ async function fetchWeather() {
     displayCurrentWeather(data);
     console.log(data); //console logging data
     displayForecastWeather(forecastData.list);
-    console.log(forecastData.list) //console logging forecast data
+    //console.log(forecastData.list) //console logging forecast data
     
 }
 
@@ -64,7 +64,7 @@ function displayForecastWeather(data) {
     // const forecastWeather = document.getElementById("forecastweather");
     // forecastWeather.innerHTML = '';
 
-    for (let i = 1; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         console.log(data[i]);
         
         //adding the forecast weather icons
@@ -73,12 +73,12 @@ function displayForecastWeather(data) {
         //assigning class to each image elements
         const forecastWeather = document.getElementById(`forecastweather-${i}`);
         // newImageElement.setAttribute('class', `forecastweather${i}`);
-        const forecastWeatherMax = document.getElementById(`forecastweather-max-${i}`);
-        const forecastWeatherMin = document.getElementById(`forecastweather-min-${i}`);
+        const forecastWeatherMax = document.getElementById(`forecastweather-max-${i+1}`);
+        const forecastWeatherMin = document.getElementById(`forecastweather-min-${i+1}`);
         
         forecastWeather.appendChild(newImageElement);
-        forecastWeatherMax.textContent = `Max: ${data[i].temp.max}\u00B0F`;
-        forecastWeatherMin.textContent = `Min: ${data[i].temp.min}\u00B0F`;
+        forecastWeatherMax.textContent = `Max: ${data[i+1].temp.max}\u00B0F`;
+        forecastWeatherMin.textContent = `Min: ${data[i+1].temp.min}\u00B0F`;
         
     }   
     
