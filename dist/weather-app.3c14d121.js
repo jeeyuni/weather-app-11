@@ -679,16 +679,18 @@ async function fetchWeather() {
     if (inputCity) city = inputCity;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=6&appid=${apiKey}&units=imperial`;
+    const hourlyUrl = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&cnt=6&appid=${apiKey}`;
     //getting dta from the current weather api
     const response = await fetch(url);
     const data = await response.json();
     // forecast weather api 
     const responseForecast = await fetch(forecastUrl);
     const forecastData = await responseForecast.json();
+    const responseHourly = await fetch(hourlyUrl);
+    const hourlyData = await responseHourly.json();
     displayCurrentWeather(data);
-    console.log(data); //console logging data
+    displayHourlyWeather(hourlyData.list);
     displayForecastWeather(forecastData.list);
-//console.log(forecastData.list) //console logging forecast data
 }
 function displayCurrentWeather(data) {
     const newImageElement = document.createElement('img');
@@ -712,11 +714,9 @@ function displayCurrentWeather(data) {
 }
 function displayForecastWeather(data) {
     for(let i = 0; i < data.length; i++){
-        console.log(data[i]);
         //adding the forecast weather icons
         const newImageElement = document.createElement('img');
         newImageElement.src = ` https://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png`;
-        //assigning class to each image elements
         const forecastWeather = document.getElementById(`forecastweathericon-${i}`);
         // newImageElement.setAttribute('class', `forecastweather-${i}`);
         const forecastWeatherMax = document.getElementById(`forecastweather-max-${i}`);
@@ -724,6 +724,25 @@ function displayForecastWeather(data) {
         forecastWeather.appendChild(newImageElement);
         forecastWeatherMax.textContent = `Max: ${data[i].temp.max}\u00B0F`;
         forecastWeatherMin.textContent = `Min: ${data[i].temp.min}\u00B0F`;
+    }
+}
+function displayHourlyWeather(data) {
+    console.log(data);
+    for(let i = 0; i < data.length; i++){
+        //adding the forecast weather icons
+        const newImageElement = document.createElement('img');
+        newImageElement.src = ` https://openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png`;
+        const hourlyWeather = document.getElementById(`hourlyforecasticon-${i}`);
+        const hourlyWeatherTemp = document.getElementById(`hourlyforecast-temp-${i}`);
+        const hourlyWeatherDescription = document.getElementById(`hourlyforecast-description-${i}`);
+        const hourlyWeatherTime = document.getElementById(`hourlyforecast-time-${i}`);
+        hourlyWeather.appendChild(newImageElement);
+        hourlyWeatherTemp.textContent = `${data[i].main.temp}\u00B0F`;
+        hourlyWeatherDescription.textContent = `${data[i].weather[0].description}`;
+        hourlyWeatherTime.textContent = `${new Date(data[i].dt * 1000).toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit'
+        })}`;
     }
 }
 fetchWeather();

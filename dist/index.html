@@ -23,7 +23,7 @@
         <button onclick="fetchWeather()">Search</button>
         <h3>You are in...</h3>
         <div id="weather-city"></div>
-        <!-- current weather container -->
+        <!-- current weather containser -->
         <div id="currentweather-container">
             <ul id="weather-list">
                 <li id="weather"></li>
@@ -34,30 +34,73 @@
         </div>
         <!-- Daily Forecast weather container-->
         <div id="forecastweather-container">
-            <ul id="forecastweather-0">
-                <li id="forecastweathericon-0"></li>
-                <li id="forecastweather-max-0"></li>
-                <li id="forecastweather-min-0"></li>
+            <ul id="fivedays-forecast">
+                <ul id="forecastweather-0">
+                    <li id="forecastweathericon-0"></li>
+                    <li id="forecastweather-max-0"></li>
+                    <li id="forecastweather-min-0"></li>
+                </ul>
+                <ul id="forecastweather-1">
+                    <li id="forecastweathericon-1"></li>
+                    <li id="forecastweather-max-1"></li>
+                    <li id="forecastweather-min-1"></li>
+                </ul>
+                <ul id="forecastweather-2">
+                    <li id="forecastweathericon-2"></li>
+                    <li id="forecastweather-max-2"></li>
+                    <li id="forecastweather-min-2"></li>
+                </ul>
+                <ul id="forecastweather-3">
+                    <li id="forecastweathericon-3"></li>
+                    <li id="forecastweather-max-3"></li>
+                    <li id="forecastweather-min-3"></li>
+                </ul>
+                <ul id="forecastweather-4">
+                    <li id="forecastweathericon-4"></li>
+                    <li id="forecastweather-max-4"></li>
+                    <li id="forecastweather-min-4"></li>
+                </ul>
             </ul>
-            <ul id="forecastweather-1">
-                <li id="forecastweathericon-1"></li>
-                <li id="forecastweather-max-1"></li>
-                <li id="forecastweather-min-1"></li>
-            </ul>
-            <ul id="forecastweather-2">
-                <li id="forecastweathericon-2"></li>
-                <li id="forecastweather-max-2"></li>
-                <li id="forecastweather-min-2"></li>
-            </ul>
-            <ul id="forecastweather-3">
-                <li id="forecastweathericon-3"></li>
-                <li id="forecastweather-max-3"></li>
-                <li id="forecastweather-min-3"></li>
-            </ul>
-            <ul id="forecastweather-4">
-                <li id="forecastweathericon-4"></li>
-                <li id="forecastweather-max-4"></li>
-                <li id="forecastweather-min-4"></li>
+        </div>
+        <!-- Hourly Forecast -->
+        <div id="hourlyforecast-container">
+            <ul id="fivehourly-forecast">
+                <ul id="hourlyforecast-0">
+                    <li id="hourlyforecasticon-0"></li>
+                    <li id="hourlyforecast-temp-0"></li>
+                    <li id="hourlyforecast-description-0"></li>
+                    <li id="hourlyforecast-time-0"></li>
+                </ul>
+                <ul id="hourlyforecast-1">
+                    <li id="hourlyforecasticon-1"></li>
+                    <li id="hourlyforecast-temp-1"></li>
+                    <li id="hourlyforecast-description-1"></li>
+                    <li id="hourlyforecast-time-1"></li>
+                </ul>
+                <ul id="hourlyforecast-2">
+                    <li id="hourlyforecasticon-2"></li>
+                    <li id="hourlyforecast-temp-2"></li>
+                    <li id="hourlyforecast-description-2"></li>
+                    <li id="hourlyforecast-time-2"></li>
+                </ul>
+                <ul id="hourlyforecast-3">
+                    <li id="hourlyforecasticon-3"></li>
+                    <li id="hourlyforecast-temp-3"></li>
+                    <li id="hourlyforecast-description-3"></li>
+                    <li id="hourlyforecast-time-3"></li>
+                </ul>
+                <ul id="hourlyforecast-4">
+                    <li id="hourlyforecasticon-4"></li>
+                    <li id="hourlyforecast-temp-4"></li>
+                    <li id="hourlyforecast-description-4"></li>
+                    <li id="hourlyforecast-time-4"></li>
+                </ul>
+                <ul id="hourlyforecast-5">
+                    <li id="hourlyforecasticon-5"></li>
+                    <li id="hourlyforecast-temp-5"></li>
+                    <li id="hourlyforecast-description-5"></li>
+                    <li id="hourlyforecast-time-5"></li>
+                </ul>
             </ul>
         </div>
     </div>

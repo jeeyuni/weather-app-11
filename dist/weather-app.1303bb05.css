@@ -1,5 +1,6 @@
 * {
   font-family: IBM Plex Sans KR, sans-serif;
+  list-style-type: none;
 }
 
 body {
@@ -38,11 +39,11 @@ body {
   display: flex;
 }
 
-#forecastweather-container {
+#fivedays-forecast, #fivehourly-forecast {
   background-color: #9ba7b4;
   justify-content: center;
   width: 100%;
-  padding: 20px;
+  padding: 50px;
   display: flex;
 }
 /*# sourceMappingURL=weather-app.1303bb05.css.map */
