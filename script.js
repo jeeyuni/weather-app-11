@@ -27,6 +27,7 @@ async function fetchWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=6&appid=${apiKey}&units=imperial`;
     const hourlyUrl = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&cnt=6&appid=${apiKey}`
+    const airpollutionUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`
 
     //getting data from the current weather api
     const response = await fetch(url);
@@ -40,16 +41,16 @@ async function fetchWeather() {
     const responseHourly = await fetch(hourlyUrl);
     const hourlyData = await responseHourly.json();
 
+    //air pollution api
+    const responseAirPollution = await fetch(airpollutionUrl);
+    const airPollutionData = await responseAirPollution.json();
     
     
-
-
     displayCurrentWeather(data);
     displayHourlyWeather(hourlyData.list)
+    displayAirPollution(airPollutionData.list);
     displayForecastWeather(forecastData.list);
-
-
-    
+   
 }
 
 function displayCurrentWeather(data) {
@@ -115,6 +116,42 @@ function displayHourlyWeather(data) {
         
     }
     
+}
+
+function displayAirPollution(data) {
+    console.log(data);
+    // const airPollution = document.getElementById("air-pollution");
+    // const airPollutionIndex = document.getElementById("air-pollution-index");
+    const airPollutionDescription = document.getElementById("air-pollution-description");
+    const quality = data[0].main.aqi;
+    
+
+    if (quality === 1) {
+        airPollutionDescription.textContent = `Air Quality: Good`;
+    }
+    else if (quality === 2) {
+        airPollutionDescription.textContent = `Air Quality: Fair`;
+    }
+    else if (quality === 3) {
+        airPollutionDescription.textContent = `Air Quality: Moderate`;
+    }
+    else if (quality === 4) {
+        airPollutionDescription.textContent = `Air Quality: Poor`;
+    }
+    else if (quality === 5) {
+        airPollutionDescription.textContent = `Air Quality: Very Poor`;
+    }
+    else {
+        airPollutionDescription.textContent = `Air Quality: Unknown`;
+    }
+
+    // airPollution.innerHTML = '';
+    // airPollutionIndex.innerHTML = '';
+    // airPollutionDescription.innerHTML = '';
+
+    // airPollutionIndex.textContent = `Air Quality Index: ${data.list[0].main.aqi}`;
+
+     //airPollutionDescription.textContent = `Air Quality Description: ${data.list[0].components.co}`;
 }
 
 fetchWeather();
