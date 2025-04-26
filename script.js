@@ -28,13 +28,23 @@ async function fetchWeather() {
     const responseHourly = await fetch(hourlyUrl);
     const hourlyData = await responseHourly.json();
 
+    //Geocoding
+    const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+    const responseGeo = await fetch(geoUrl);
+    const geoData = await responseGeo.json();
+    console.log(geoData);
+
+
     displayCurrentWeather(data);
     displayHourlyWeather(hourlyData.list)
     displayForecastWeather(forecastData.list);
 
+
+    
 }
 
 function displayCurrentWeather(data) {
+    //console.log(data)
     const newImageElement = document.createElement('img');
     newImageElement.src = ` https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
