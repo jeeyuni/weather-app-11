@@ -14,25 +14,34 @@ async function fetchWeather() {
         city = inputCity;
     }
 
+    //Geocoding - getting lat and lon 
+    const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+    const responseGeo = await fetch(geoUrl);
+    const geoData = await responseGeo.json();
+    //lat and lon of the city 
+    const lat = geoData[0].lat;
+    const lon = geoData[0].lon;
+    
+
+    // the urls
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=6&appid=${apiKey}&units=imperial`;
     const hourlyUrl = `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&cnt=6&appid=${apiKey}`
 
-    //getting dta from the current weather api
+    //getting data from the current weather api
     const response = await fetch(url);
     const data = await response.json();
-    // forecast weather api 
+
+    // forecast weather api
     const responseForecast = await fetch(forecastUrl);
     const forecastData = await responseForecast.json();
     
+    //hourly forecast api
     const responseHourly = await fetch(hourlyUrl);
     const hourlyData = await responseHourly.json();
 
-    //Geocoding
-    const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
-    const responseGeo = await fetch(geoUrl);
-    const geoData = await responseGeo.json();
-    console.log(geoData);
+    
+    
 
 
     displayCurrentWeather(data);
