@@ -766,17 +766,13 @@ function displayAirPollution(data) {
     // const airPollutionIndex = document.getElementById("air-pollution-index");
     const airPollutionDescription = document.getElementById("air-pollution-description");
     const quality = data[0].main.aqi;
+    console.log(quality);
     if (quality === 1) airPollutionDescription.textContent = `Air Quality: Good`;
     else if (quality === 2) airPollutionDescription.textContent = `Air Quality: Fair`;
     else if (quality === 3) airPollutionDescription.textContent = `Air Quality: Moderate`;
     else if (quality === 4) airPollutionDescription.textContent = `Air Quality: Poor`;
     else if (quality === 5) airPollutionDescription.textContent = `Air Quality: Very Poor`;
     else airPollutionDescription.textContent = `Air Quality: Unknown`;
-// airPollution.innerHTML = '';
-// airPollutionIndex.innerHTML = '';
-// airPollutionDescription.innerHTML = '';
-// airPollutionIndex.textContent = `Air Quality Index: ${data.list[0].main.aqi}`;
-//airPollutionDescription.textContent = `Air Quality Description: ${data.list[0].components.co}`;
 }
 fetchWeather();
 

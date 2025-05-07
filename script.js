@@ -22,7 +22,6 @@ async function fetchWeather() {
     const lat = geoData[0].lat;
     const lon = geoData[0].lon;
     
-
     // the urls
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=6&appid=${apiKey}&units=imperial`;
@@ -98,6 +97,8 @@ function displayForecastWeather(data) {
 }
 
 function displayHourlyWeather(data) {
+    
+    
     for (let i = 0; i < data.length; i++) {
         //adding the forecast weather icons
         const newImageElement = document.createElement('img');
@@ -124,8 +125,8 @@ function displayAirPollution(data) {
     // const airPollutionIndex = document.getElementById("air-pollution-index");
     const airPollutionDescription = document.getElementById("air-pollution-description");
     const quality = data[0].main.aqi;
+    console.log(quality);
     
-
     if (quality === 1) {
         airPollutionDescription.textContent = `Air Quality: Good`;
     }
@@ -145,13 +146,7 @@ function displayAirPollution(data) {
         airPollutionDescription.textContent = `Air Quality: Unknown`;
     }
 
-    // airPollution.innerHTML = '';
-    // airPollutionIndex.innerHTML = '';
-    // airPollutionDescription.innerHTML = '';
-
-    // airPollutionIndex.textContent = `Air Quality Index: ${data.list[0].main.aqi}`;
-
-     //airPollutionDescription.textContent = `Air Quality Description: ${data.list[0].components.co}`;
+    
 }
 
 fetchWeather();

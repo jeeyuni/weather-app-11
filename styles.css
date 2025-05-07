@@ -34,13 +34,20 @@ body {
     background: rgb(155, 167, 180);
     padding: 5px;
     border-radius: 2px;
-    height: 200px;
-    display: flex;
+    height: 500px;
+    width: 500px;
+    display: ;
     align-items: center;
     justify-content: center;
     height: flex;
     margin: 0;
     
+}
+
+#city {
+    padding: 0 20px 0 50px;
+    height: 100px;
+    width: 500px;
 }
 
 #fivedays-forecast {
